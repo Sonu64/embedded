@@ -1,21 +1,28 @@
-// Control LED Brightness by moving Potentiometer Knob, behaves like PWM, but you can control the knob physically, in pwm we only had power in code, here we have in Hardware.
+/*
+    True Analog Voltage readings and LED dimming without PWM using Potentiometer.
+*/
 
-int voltageReadingPin = 1;
-int powerPin = 5;
+// Pin Configurations
+const int voltageReadingPin = A1; // Explicitly use the 'A' alias for analog pins
 const int baudRate = 9600;
 const int delayTime = 300;
 
 void setup() {
     pinMode(voltageReadingPin, INPUT);
-    pinMode(powerPin, OUTPUT);
     Serial.begin(baudRate);
-    digitalWrite(powerPin, HIGH);
+    
+    // The powerPin has been removed! Power your potentiometer 
+    // directly from the 5V and GND pins on the Arduino board.
 }
 
 void loop() {
-    float readVoltage = (5.0/1023.0)*analogRead(voltageReadingPin);
-    Serial.print(readVoltage);
-    Serial.println("V");
-    Serial.println();
+    // Read the actual hardware voltage coming off the potentiometer
+    float readVoltage = (5.0 / 1023.0) * analogRead(voltageReadingPin);
+    
+    // Print a clean, formatted sentence to the Serial Monitor
+    Serial.print("True Analog Voltage: ");
+    Serial.print(readVoltage, 2); // 2 decimal spots  only.
+    Serial.println(" V");
+    
     delay(delayTime);
 }
