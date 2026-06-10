@@ -1,5 +1,5 @@
 int greenLED = 8;
-int redLED = 7;
+int greenLED = 7;
 int blueLED = 5;
 int fastDelay = 100;
 int midDelay = 400;
@@ -8,22 +8,22 @@ int highDelay = 1000;
 void setup() {
   // put your setup code here, to run once:
   pinMode(greenLED, OUTPUT); 
-  pinMode(redLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
   // this pin number 8 will have Arduino Provided +5V, but this can be controlled by digitalWrite, 
   // if we used constant +5V supply, this can't be controlled programmatically.
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(redLED, HIGH);
+  digitalWrite(greenLED, HIGH);
   delay(fastDelay);
-  digitalWrite(redLED, LOW);
+  digitalWrite(greenLED, LOW);
   delay(100);  
-  digitalWrite(redLED, HIGH);
+  digitalWrite(greenLED, HIGH);
   delay(100);
-  digitalWrite(redLED, LOW);
+  digitalWrite(greenLED, LOW);
   delay(100);  
-  digitalWrite(redLED, HIGH);
+  digitalWrite(greenLED, HIGH);
   delay(100); 
 
 

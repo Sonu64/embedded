@@ -1,5 +1,5 @@
 // Pin Configurations
-const int redLED = 11; // PWM capable pin
+const int greenLED = 11; // PWM capable pin
 const int voltageReadingPinB = A2;             
 const int voltageReadingPinC = A1; // Explicitly using A1 standard alias
 const int baudRate = 9600;
@@ -8,7 +8,7 @@ const int baudRate = 9600;
 float voltage = 0.0; 
 
 void setup() {
-  pinMode(redLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
   pinMode(voltageReadingPinC, INPUT);
   pinMode(voltageReadingPinB, INPUT);
   Serial.begin(baudRate);
@@ -30,7 +30,7 @@ void printVoltage(int rawADC, int  point) {
 
 void loop() {
   // Force Pin 11 to stay slightly lower than HIGH constantly, PWM Oscillation occurs !
-  analogWrite(redLED, 230); 
+  analogWrite(greenLED, 230); 
   
   // Read the resulting constant voltage at Node B
   int rawADCB = analogRead(voltageReadingPinB);

@@ -1,11 +1,11 @@
 const int delayTime = 500; // ms 
 const int potPin = A1; // explicit analog pins for inputs 
-const int redLED = 4; 
+const int greenLED = 4; 
 const int baudRate = 9600;
 
 void setup() {
     pinMode(potPin, INPUT);
-    pinMode(redLED, OUTPUT);
+    pinMode(greenLED, OUTPUT);
     Serial.begin(baudRate);
 }
 

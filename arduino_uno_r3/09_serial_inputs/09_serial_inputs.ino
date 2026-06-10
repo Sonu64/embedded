@@ -1,10 +1,10 @@
 const int baudRate = 9600;
 const int delayTimer = 350; // ms 
-const int redLED = 8; // for digital outputs
+const int greenLED = 8; // for digital outputs
 String prompt = "Enter number of times you want to blink LED: ";
 
 void setup() {
-    pinMode(redLED, OUTPUT);
+    pinMode(greenLED, OUTPUT);
     Serial.begin(baudRate);
 }
 
@@ -22,9 +22,9 @@ void loop() {
 
     // blink those number of times
     for(int i=0; i<blinks; i++) {
-        digitalWrite(redLED, HIGH);
+        digitalWrite(greenLED, HIGH);
         delay(delayTimer);
-        digitalWrite(redLED, LOW);
+        digitalWrite(greenLED, LOW);
         delay(delayTimer);
     }
 }
