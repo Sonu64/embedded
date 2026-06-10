@@ -10,9 +10,6 @@ const int delayTime = 300;
 void setup() {
     pinMode(voltageReadingPin, INPUT);
     Serial.begin(baudRate);
-    
-    // The powerPin has been removed! Power your potentiometer 
-    // directly from the 5V and GND pins on the Arduino board.
 }
 
 void loop() {
