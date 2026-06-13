@@ -8,8 +8,9 @@
  * monitored and reported to the serial console.
  */
 
+const int warningVoltage = 3.5;
 const int buzzPin = 5; // ~
-const int delayTime = 200; 
+const int delayTime = 150; 
 const int potPin = A0; // Explicit Analog In Pin.
 const int baudRate = 9600;
 const int redLED = 9;
@@ -35,7 +36,7 @@ void turnLEDOff() {
 }
 
 void printFormattedVoltage(float voltage) {
-  if (voltage >= 3.50) {
+  if (voltage > warningVoltage) {
       Serial.print("WARNING ! Voltage is ");
       Serial.print(voltage);
       Serial.println(" V");
@@ -50,15 +51,17 @@ void printFormattedVoltage(float voltage) {
 void setup() {
   // put your setup code here, to run once:
   pinMode(buzzPin, OUTPUT);
+  pinMode(redLED, OUTPUT);
   pinMode(potPin, INPUT);
   Serial.begin(baudRate);
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   float voltage = (5.0/1023.0)*(analogRead(potPin));
   printFormattedVoltage(voltage);
-  if (voltage > 3.5) {
+  if (voltage > warningVoltage) {
     playBuzzer();
     blinkLED();
   }
