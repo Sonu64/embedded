@@ -8,7 +8,7 @@
  * monitored and reported to the serial console.
  */
 
-const int warningVoltage = 3.5;
+const float warningVoltage = 3.50;
 const int buzzPin = 5; // ~
 const int delayTime = 150; 
 const int potPin = A0; // Explicit Analog In Pin.
